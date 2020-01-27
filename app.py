@@ -8,12 +8,12 @@ from newbotlogic import super_rando, shmirator, switcher_func
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/", methods=['GET'])
+@app.route("/message/", methods=['GET'])
 def hello():
     text = request.args['message']
     ip = request.remote_addr
 
-    return jsonify(switcher_func(text))
+    return jsonify({'message': switcher_func(text)})
 
 
 

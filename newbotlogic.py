@@ -97,7 +97,11 @@ def shmirator(phrase_list):
     # phrase_list = user_phrase.split()
     new_phrase = []
     separator = ' '
+    vowels = ['a','e','i','o','u']
     for word in phrase_list:
-        shword = 'shm'+str(word)
+        if len(word) <= 1 or word[0] in vowels:
+            shword =  'shm'+str(word)
+        else:
+            shword = 'shm'+(word[1:])             
         new_phrase.append(shword)
     return (separator.join(new_phrase))

@@ -1,4 +1,8 @@
 import random
+import requests
+from servers import server_list
+import json
+
 
 def switcher_func(string):
     string = string.lower()
@@ -6,6 +10,7 @@ def switcher_func(string):
     switcher = {
         1: super_rando(phrase_list),
         2: shmirator(phrase_list),
+        3: random_server(string)
         
     }
     
@@ -105,3 +110,13 @@ def shmirator(phrase_list):
             shword = 'shm'+(word[1:])             
         new_phrase.append(shword)
     return (separator.join(new_phrase))
+
+def random_server(string):
+    server = server_list[random.randint(0,len(server_list)-1)]
+    print(server+string)
+    r = requests.get(server+string).content
+    r = json.loads(r)
+    r["message"] = r["message"]+'courtesy of ' + server  
+    return(r)
+
+random_server('hello there')

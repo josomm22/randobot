@@ -15,10 +15,12 @@ def hello():
 
     return jsonify({'message': switcher_func(text)})
 
-
-
-if __name__ == "__main__":
+def flask_thread():
     local = '127.0.0.1'
     heroku = '0.0.0.0'
     port = int(os.environ.get('PORT', 5000))
     app.run(host=heroku, port=port)
+
+if __name__ == "__main__":
+    thread1 = threading.Thread(target=flask_thread)
+    thread1.start()

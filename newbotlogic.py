@@ -1,9 +1,22 @@
 import random
+
+def switcher_func(string):
+    string = string.lower()
+    phrase_list = string.split()
+    switcher = {
+        1: super_rando(phrase_list),
+        2: shmirator(phrase_list),
+        
+    }
+    
+    response = switcher.get(random.randint(1,2))
+    return response
+
 snippets = [
     'I think that',
     'all is',
     'seeing that',
-    'bark bark bark',
+    'bark bark',
     'sippin on',
     'everything in life',
 ]
@@ -16,6 +29,7 @@ verbs1 = ['have',
           'involve',
           'include',
           'contain', ]
+
 verbs2 = ['Love',
           'Like',
           'Dislike',
@@ -31,17 +45,32 @@ verbs2 = ['Love',
           'Hope',
           'Appreciate',
           'Value', ]
+adejctives = [
+    'open',
+    'awake',
+    'temporary',
+    'handsomely',
+    'plant',
+    'languid',
+    'special',
+    'narrow',
+    'lumpy',
+    'awesome',
+    'valuable',
+    'is cancelled',
 
+
+]
 objects = ['toaster',
-    'shoes',
-    'burger',
-    'bike pump',
-    'happiness',
-    'balls',
-    'poop',
-    'doodooface', ]
+           'shoes',
+           'burger',
+           'bike pump',
+           'happiness',
+           'balls',
+           'poop',
+           'doodooface', ]
 
-comp = [snippets, pronouns, verbs1, verbs2, objects]
+
 
 def random_response(word):
     words = ['poop', 'toot', 'boop', 'snoot']
@@ -50,14 +79,25 @@ def random_response(word):
     print(words)
     return response
 
-def super_rando(user_phrase):
-    amount_of_words = random.randint(2,10)
+
+def super_rando(phrase_list):
+    # phrase_list = user_phrase.split()
+    comp = [snippets, pronouns, verbs1, verbs2, adejctives, objects, phrase_list]
+    amount_of_words = random.randint(2, 10)
     structure = []
-    x = ' '
-    for i in range (0,amount_of_words):
-        type_of_word = comp[random.randint(0,len(comp)-1)]
-        word = type_of_word[random.randint(0,len(type_of_word)-1)]
+    separator = ' '
+    for i in range(0, amount_of_words):
+        type_of_word = comp[random.randint(0, len(comp)-1)]
+        word = type_of_word[random.randint(0, len(type_of_word)-1)]
         structure.append(word)
-    return (x.join(structure))
+    return (separator.join(structure))
 
 
+def shmirator(phrase_list):
+    # phrase_list = user_phrase.split()
+    new_phrase = []
+    separator = ' '
+    for word in phrase_list:
+        shword = 'shm'+str(word)
+        new_phrase.append(shword)
+    return (separator.join(new_phrase))

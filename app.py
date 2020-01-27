@@ -3,7 +3,7 @@ import threading
 import time
 import os
 from flask_cors import CORS, cross_origin
-from newbotlogic import super_rando
+from newbotlogic import super_rando, shmirator, switcher_func
 
 app = Flask(__name__)
 CORS(app)
@@ -13,7 +13,7 @@ def hello():
     text = request.args['message']
     ip = request.remote_addr
 
-    return jsonify(super_rando(text))
+    return jsonify(switcher_func(text))
 
 
 

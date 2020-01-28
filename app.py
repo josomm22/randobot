@@ -19,7 +19,7 @@ def flask_thread():
     local = '127.0.0.1'
     heroku = '0.0.0.0'
     port = int(os.environ.get('PORT', 5000))
-    app.run(host=heroku, port=port)
+    app.run(host=heroku, port=port,, use_reloader=False)
 
 if __name__ == "__main__":
     thread1 = threading.Thread(target=flask_thread)

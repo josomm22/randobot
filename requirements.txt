@@ -2,3 +2,4 @@ Flask
 flask_cors
 Jinja2
 Werkzeug
+requests

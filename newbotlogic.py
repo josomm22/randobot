@@ -12,11 +12,11 @@ def switcher_func(string,ip):
         2: shmirator(phrase_list),
         3: random_server(string),
         4: bruh(phrase_list),
-        5: location(ip),
+        # 5: location(ip),
         
     }
     
-    response = switcher.get(random.randint(5,5))
+    response = switcher.get(random.randint(1,4))
     return response
 
 snippets = [

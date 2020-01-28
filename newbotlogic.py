@@ -4,7 +4,7 @@ from servers import server_list
 import json
 
 
-def switcher_func(string):
+def switcher_func(string,ip):
     string = string.lower()
     phrase_list = string.split()
     switcher = {
@@ -12,10 +12,11 @@ def switcher_func(string):
         2: shmirator(phrase_list),
         3: random_server(string),
         4: bruh(phrase_list),
+        5: location(ip),
         
     }
     
-    response = switcher.get(random.randint(1,4))
+    response = switcher.get(random.randint(5,5))
     return response
 
 snippets = [
@@ -125,4 +126,23 @@ def bruh(phrase_list):
     bruh = 'bruh '
     response = bruh * amount
     return response
+
+
+def location(ip):
+    print(ip)
+    response = requests.get('http://ipinfo.io/json/'+str(ip))
+    print(response)
+    data = response.json()
+    print(data)
+    org=data['org']
+    city = data['city']
+    country=data['country']
+    region=data['region']
+    loc = data['loc']
+
+    phrase = f'it\s the first time someone from{city} talsk to me like that'
+
+    # print('Your IP detail\n ')
+    # print ('IP : {4} \nRegion : {1} \nCountry : {2} \nCity : {3} \nOrg : {0}'.format(org,region,country,city,IP))
+    return phrase
 # print(bruh(['hello', 'there']))

@@ -13,7 +13,7 @@ def hello():
     text = request.args['message']
     ip = request.remote_addr
 
-    return jsonify({'message': switcher_func(text)})
+    return jsonify({'message': switcher_func(text,ip)})
 
 def flask_thread():
     local = '127.0.0.1'

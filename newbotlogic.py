@@ -10,11 +10,12 @@ def switcher_func(string):
     switcher = {
         1: super_rando(phrase_list),
         2: shmirator(phrase_list),
-        3: random_server(string)
+        3: random_server(string),
+        4: bruh(phrase_list),
         
     }
     
-    response = switcher.get(random.randint(1,3))
+    response = switcher.get(random.randint(1,4))
     return response
 
 snippets = [
@@ -119,4 +120,9 @@ def random_server(string):
     r = r["message"]+'courtesy of ' + server  
     return(r)
 
-random_server('hello there')
+def bruh(phrase_list):
+    amount = len(phrase_list)
+    bruh = 'bruh '
+    response = bruh * amount
+    return response
+# print(bruh(['hello', 'there']))

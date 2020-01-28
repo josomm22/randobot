@@ -14,7 +14,7 @@ def switcher_func(string):
         
     }
     
-    response = switcher.get(random.randint(1,2))
+    response = switcher.get(random.randint(1,3))
     return response
 
 snippets = [

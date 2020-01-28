@@ -116,7 +116,7 @@ def random_server(string):
     print(server+string)
     r = requests.get(server+string).content
     r = json.loads(r)
-    r["message"] = r["message"]+'courtesy of ' + server  
+    r = r["message"]+'courtesy of ' + server  
     return(r)
 
 random_server('hello there')
